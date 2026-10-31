@@ -187,14 +187,18 @@
 /* 2. Hero Section & Eye Animation Container */
 .hero-section {
   position: relative;
+  min-height: 100vh;
   background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
   border-bottom: var(--border-light);
   overflow: hidden;
+  display: flex;
+  align-items: flex-start;
 }
 
 .hero-content-wrapper {
+  width: 100%;
   padding-top: calc(var(--header-height) + 40px);
-  padding-bottom: 40px;
+  padding-bottom: 60px;
   text-align: center;
 }
 

@@ -98,11 +98,17 @@ export class EyeHeroAnimation {
   _initScrollTrigger() {
     if (!this.container) return;
 
+    // Pin the hero section so the eye animation plays while scrolling through
+    const heroSection = document.getElementById('hero');
+
     ScrollTrigger.create({
-      trigger: this.container,
-      start: 'top 70%',
-      end: 'bottom 20%',
-      scrub: 1.2, // Smooth scrub
+      trigger: heroSection || this.container,
+      start: 'top top',
+      end: '+=140%',       // Scroll 140% of viewport height to complete the animation
+      pin: true,           // Pin the hero section while animating
+      pinSpacing: true,    // Keep layout spacing consistent
+      scrub: 1.5,          // Smooth scrub
+      anticipatePin: 1,
       onUpdate: (self) => {
         this.render(self.progress);
       }
