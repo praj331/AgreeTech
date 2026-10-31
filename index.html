@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RETINA AI | AI-Assisted Retinal Screening &amp; Doctor-Supported Care</title>
+  <meta name="description" content="RETINA AI is an AI-assisted retinal screening and doctor-supported care platform connecting patients, screening operators, NGOs, hospitals, and ophthalmologists for early diabetic retinopathy detection.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animation.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/dashboards.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <a href="#hero" class="nav-brand" onclick="window.RetinaRouter.navigate('landing');" aria-label="RETINA AI Home">
+        <svg class="brand-icon-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="21" stroke="#0284c7" stroke-width="2.5" stroke-dasharray="6 4"/>
+          <circle cx="24" cy="24" r="14" stroke="#38bdf8" stroke-width="2"/>
+          <circle cx="24" cy="24" r="6" fill="#0284c7"/>
+          <circle cx="24" cy="24" r="2.5" fill="#ffffff"/>
+        </svg>
+        <span class="brand-text">RETINA <span>AI</span></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="#hero" class="nav-link active" onclick="window.RetinaRouter.navigate('landing');">Home</a></li>
+          <li><a href="#about" class="nav-link" onclick="window.RetinaRouter.navigate('landing');">About</a></li>
+          <li><a href="#screening-process" class="nav-link" onclick="window.RetinaRouter.navigate('landing');">Screening Process</a></li>
+          <li><a href="#why-it-matters" class="nav-link" onclick="window.RetinaRouter.navigate('landing');">Why It Matters</a></li>
+        </ul>
+      </nav>
+
+      <!-- Desktop Actions -->
+      <div class="nav-actions">
+        <button class="btn btn-primary" onclick="window.RetinaRouter.navigate('signin')" type="button">
+          Sign In / Portals
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <ul class="mobile-nav-list">
+      <li><a href="#hero" class="mobile-nav-link" onclick="window.RetinaRouter.navigate('landing');">Home</a></li>
+      <li><a href="#about" class="mobile-nav-link" onclick="window.RetinaRouter.navigate('landing');">About Platform</a></li>
+      <li><a href="#screening-process" class="mobile-nav-link" onclick="window.RetinaRouter.navigate('landing');">7-Step Screening Process</a></li>
+      <li><a href="#why-it-matters" class="mobile-nav-link" onclick="window.RetinaRouter.navigate('landing');">Why Early Screening Matters</a></li>
+      <li><a href="#signin" class="mobile-nav-link" onclick="window.RetinaRouter.navigate('signin');">Role Portals</a></li>
+    </ul>
+    <div style="margin-top: auto;">
+      <button class="btn btn-primary" style="width: 100%;" onclick="window.RetinaRouter.navigate('signin');">
+        Sign In / Role Portals
+      </button>
+    </div>
+  </aside>
+
+  <!-- Mount Point for Client-Side Views -->
+  <main id="app-root"></main>
+
+  <!-- Floating Toast Notifications -->
+  <div class="app-toast" id="app-toast" role="status" aria-live="polite">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+    </svg>
+    <span id="toast-message">Notification message</span>
+  </div>
+
+  <!-- Main JavaScript App -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

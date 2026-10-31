@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NAYAN AI | AI-Based Diabetic Retinopathy Screening</title>
+  <meta name="description" content="NAYAN AI empowers healthcare providers with advanced AI-driven diabetic retinopathy screening. Experience our photorealistic cinematic journey from the closed human eye to the retinal fundus.">
+  <script type="module" crossorigin src="/assets/index-52hr9dBU.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DKhYY6Lf.css">
+</head>
+<body>
+
+  <!-- Loading Experience Screen -->
+  <div class="loading-screen" id="loading-screen">
+    <div class="loading-content">
+      <div class="loading-brand">
+        <svg class="brand-icon-svg loading-logo-ring" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="21" stroke="#0284c7" stroke-width="2.5" stroke-dasharray="6 4"/>
+          <circle cx="24" cy="24" r="14" stroke="#38bdf8" stroke-width="2"/>
+          <circle cx="24" cy="24" r="6" fill="#0284c7"/>
+          <circle cx="24" cy="24" r="2.5" fill="#ffffff"/>
+        </svg>
+        <span class="brand-name">NAYAN<span>.ai</span></span>
+      </div>
+      <div class="loading-bar-track">
+        <div class="loading-bar-fill" id="loading-progress-bar"></div>
+      </div>
+      <div class="loading-meta">
+        <span id="loading-status-text">Calibrating macro eye optics &amp; retinal fundus...</span>
+        <span id="loading-percent">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- WebGL Graceful Fallback Banner -->
+  <div class="webgl-fallback-banner" id="webgl-fallback-banner">
+    <strong>Notice:</strong> Hardware-accelerated 3D WebGL is unavailable on this device. Displaying standard medical interface.
+  </div>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header nav-dark-mode" id="site-header">
+    <div class="container header-container">
+      <a href="#hero-3d-experience" class="nav-brand" aria-label="NAYAN AI Home">
+        <svg class="brand-icon-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="21" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3"/>
+          <circle cx="24" cy="24" r="14" stroke="#0284c7" stroke-width="2.2"/>
+          <circle cx="24" cy="24" r="6" fill="#0284c7"/>
+          <circle cx="24" cy="24" r="2.5" fill="#38bdf8"/>
+        </svg>
+        <span class="brand-text">NAYAN<span>.ai</span></span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="#hero-3d-experience" class="nav-link">Home</a></li>
+          <li><a href="#about-solution" class="nav-link">About</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="#technology" class="nav-link">Technology</a></li>
+          <li><a href="#who-it-serves" class="nav-link">Who We Serve</a></li>
+          <li><a href="#contact-section" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Desktop Actions -->
+      <div class="nav-actions">
+        <button class="btn btn-secondary btn-open-login" type="button">Portal Access</button>
+        <button class="btn btn-primary btn-open-demo" type="button">Request Demo</button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <ul class="mobile-nav-list">
+      <li><a href="#hero-3d-experience" class="mobile-nav-link">Home</a></li>
+      <li><a href="#about-solution" class="mobile-nav-link">About Solution</a></li>
+      <li><a href="#how-it-works" class="mobile-nav-link">How It Works</a></li>
+      <li><a href="#technology" class="mobile-nav-link">Technology</a></li>
+      <li><a href="#who-it-serves" class="mobile-nav-link">Who We Serve</a></li>
+      <li><a href="#contact-section" class="mobile-nav-link">Contact Us</a></li>
+    </ul>
+    <div class="mobile-actions">
+      <button class="btn btn-secondary btn-open-login" type="button">Clinician Portal</button>
+      <button class="btn btn-primary btn-open-demo" type="button">Schedule Screening Demo</button>
+    </div>
+  </aside>
+
+  <!-- MAIN EXPERIENCE -->
+  <main>
+    <!-- 1. Hero 3D Experience (Pinned GSAP Scroll Animation) -->
+    <section class="hero-3d-experience" id="hero-3d-experience" aria-label="Photorealistic Human Eye Journey">
+      <!-- Three.js Canvas Host -->
+      <div class="webgl-canvas-container" id="webgl-canvas-container"></div>
+
+      <!-- Minimal, Unobtrusive Hero Overlay (Eye Remains Completely Visible) -->
+      <div class="hero-text-overlay" id="hero-text-overlay">
+        <div class="hero-top-badge">
+          <span class="pulse-dot"></span>
+          NAYAN AI &bull; AUTONOMOUS RETINAL SCREENING
+        </div>
+
+        <div class="hero-bottom-caption">
+          <h1 class="hero-headline">VISION BEYOND SIGHT</h1>
+          <p class="hero-subtext">Discover a new perspective on retinal health.</p>
+
+          <div class="scroll-prompt" id="scroll-prompt">
+            <span>Scroll to open the eye &amp; explore</span>
+            <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating Anatomical Stage HUD Indicator -->
+      <div class="stage-indicator" id="stage-indicator" aria-live="polite">
+        <span class="stage-number" id="stage-number">01</span>
+        <span class="stage-divider"></span>
+        <span class="stage-name" id="stage-name">Closed Human Eye (Macro Photography)</span>
+      </div>
+
+      <!-- Transition Curtain into White-and-Blue NAYAN AI Landing Page -->
+      <div class="retina-transition-overlay" id="retina-transition-overlay"></div>
+    </section>
+
+    <!-- 2. Post-Retina White-and-Blue Healthcare Landing Page Content -->
+    <div class="page-content-wrapper" id="content-overview">
+
+      <!-- SECTION 1 – COMPANY INTRODUCTION -->
+      <section class="section-padding intro-section" id="company-intro">
+        <div class="container">
+          <div class="intro-grid">
+            <div class="intro-text-col animate-on-scroll">
+              <span class="kicker-badge">
+                <span class="dot"></span>
+                Frontline Ophthalmic AI
+              </span>
+              <h2 class="section-title">Advancing the Future of Retinal Screening</h2>
+              <p class="intro-lead-text">
+                NAYAN AI combines advanced deep learning with clinical fundus photography to deliver accessible, point-of-care diabetic retinopathy screening.
+              </p>
+              <p class="intro-body-text">
+                Diabetic retinopathy remains one of the primary preventable causes of vision impairment globally. NAYAN AI is engineered to support primary care clinics, regional health networks, and screening centers in identifying sight-threatening retinal changes before irreversible visual loss occurs.
+              </p>
+
+              <div class="intro-metrics-row">
+                <div class="metric-pill">
+                  <span class="metric-val">90%+</span>
+                  <span class="metric-lbl">Preventable with Early Detection</span>
+                </div>
+                <div class="metric-pill">
+                  <span class="metric-val">&lt; 60s</span>
+                  <span class="metric-lbl">Analysis Time per Eye</span>
+                </div>
+                <div class="metric-pill">
+                  <span class="metric-val">ICDR</span>
+                  <span class="metric-lbl">Clinical Grading Alignment</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Visual Diagnostic Card -->
+            <div class="intro-visual-card animate-on-scroll delay-1">
+              <div class="visual-card-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                Clinical Fundus Diagnostics
+              </div>
+              <div class="visual-illustration-wrap">
+                <!-- Authentic Clinical Fundus Thumbnail with AI Callouts -->
+                <div class="fundus-preview-box">
+                  <img src="/assets/retina_fundus_real-BsoRGxV1.jpg" alt="NAYAN AI Clinical Fundus Screening" class="fundus-real-img">
+                  <div class="ai-callout-overlay">
+                    <span class="ai-tag tag-fovea">FAZ: Preserved</span>
+                    <span class="ai-tag tag-disc">Optic Disc: Intact</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2 – ABOUT THE SOLUTION -->
+      <section class="section-padding about-section" id="about-solution">
+        <div class="container text-center">
+          <span class="kicker-badge animate-on-scroll">
+            <span class="dot"></span>
+            Clinical Screening Concept
+          </span>
+          <h2 class="section-title animate-on-scroll">Understanding Diabetic Retinopathy</h2>
+          <p class="section-subtitle animate-on-scroll">
+            Chronic hyperglycemia progressively weakens retinal microvessels, leading to capillary dropouts, microaneurysms, hemorrhages, and macular edema. Timely screening is critical to preserving visual acuity.
+          </p>
+
+          <div class="cards-grid-3">
+            <div class="medical-card animate-on-scroll delay-1">
+              <div class="card-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+              </div>
+              <h3 class="card-title">Silent Early Progression</h3>
+              <p class="card-desc">
+                In its initial non-proliferative phases (Mild and Moderate NPDR), diabetic retinopathy often presents zero visual symptoms, making automated screening the most reliable safety net.
+              </p>
+            </div>
+
+            <div class="medical-card animate-on-scroll delay-2">
+              <div class="card-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </div>
+              <h3 class="card-title">Frontline Image Ingestion</h3>
+              <p class="card-desc">
+                Compatible with standard desktop and portable non-mydriatic fundus cameras, allowing non-specialist clinicians to capture diagnostic-quality scans during routine checkups.
+              </p>
+            </div>
+
+            <div class="medical-card animate-on-scroll delay-3">
+              <div class="card-icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+              <h3 class="card-title">Triage &amp; Clinical Referral</h3>
+              <p class="card-desc">
+                Generates instant triage recommendations, flagging patients exhibiting signs of referable retinopathy for urgent evaluation by ophthalmologists and retinal specialists.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3 – HOW IT WORKS -->
+      <section class="section-padding workflow-section" id="how-it-works">
+        <div class="container text-center">
+          <span class="kicker-badge animate-on-scroll">
+            <span class="dot"></span>
+            Operational Workflow
+          </span>
+          <h2 class="section-title animate-on-scroll">Standardized Screening Pathway</h2>
+          <p class="section-subtitle animate-on-scroll">
+            Designed to seamlessly integrate with existing clinical infrastructure, from outpatient diabetes centers to remote community camps.
+          </p>
+
+          <div class="workflow-steps-grid">
+            <div class="workflow-card animate-on-scroll delay-1">
+              <div class="step-badge">1</div>
+              <h3 class="step-title">Image Acquisition</h3>
+              <p class="step-desc">
+                Retinal fundus photography captured using approved digital non-mydriatic or mydriatic fundus imaging hardware.
+              </p>
+            </div>
+
+            <div class="workflow-card animate-on-scroll delay-2">
+              <div class="step-badge">2</div>
+              <h3 class="step-title">Quality Assurance</h3>
+              <p class="step-desc">
+                Automated validation of image illumination, focus clarity, and field centering to ensure scan gradeability.
+              </p>
+            </div>
+
+            <div class="workflow-card animate-on-scroll delay-3">
+              <div class="step-badge">3</div>
+              <h3 class="step-title">AI Deep Analysis</h3>
+              <p class="step-desc">
+                Neural networks identify microvascular lesions, exudates, and structural changes across retinal vascular arcades.
+              </p>
+            </div>
+
+            <div class="workflow-card animate-on-scroll delay-4">
+              <div class="step-badge">4</div>
+              <h3 class="step-title">Actionable Triage</h3>
+              <p class="step-desc">
+                Generates a standardized clinical summary report categorized according to established ICDR screening guidelines.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4 – TECHNOLOGY & SCIENTIFIC INTEGRITY -->
+      <section class="section-padding technology-section" id="technology">
+        <div class="container">
+          <div class="text-center">
+            <span class="kicker-badge animate-on-scroll">
+              <span class="dot"></span>
+              Engineering &amp; Standards
+            </span>
+            <h2 class="section-title animate-on-scroll">Engineered for Clinical Confidence</h2>
+            <p class="section-subtitle animate-on-scroll">
+              Our core screening architecture leverages deep learning models optimized for high sensitivity to sight-threatening retinopathy.
+            </p>
+          </div>
+
+          <div class="tech-grid">
+            <div class="tech-feature-card animate-on-scroll delay-1">
+              <h4>Computer Vision Architecture</h4>
+              <p>
+                Utilizes multi-scale convolutional and attention-based networks specifically tuned to detect low-contrast retinal lesions against variable choroidal backgrounds.
+              </p>
+              <ul class="tech-checklist">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Microaneurysm &amp; dot-blot hemorrhage localization
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Hard &amp; soft exudate segmentation
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Macular region and foveal avascular zone inspection
+                </li>
+              </ul>
+            </div>
+
+            <div class="tech-feature-card animate-on-scroll delay-2">
+              <h4>Clinical Workflow Integration</h4>
+              <p>
+                Architected to connect securely with hospital picture archiving systems (PACS) and electronic health records (EHR) through modern healthcare interoperability protocols.
+              </p>
+              <ul class="tech-checklist">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Standard DICOM image ingestion &amp; metadata handling
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  HL7 / FHIR clinical screening report export
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  End-to-end data encryption with on-premise or cloud flexibility
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Scientific Integrity Callout -->
+          <div class="scientific-integrity-callout animate-on-scroll">
+            <strong>Clinical Integrity &amp; Regulatory Note:</strong> NAYAN AI software modules are designed to assist healthcare professionals in high-volume triage. Performance parameters, clinical sensitivities, and regulatory clearances are established through rigorous protocol-defined multi-center evaluations and regional regulatory submissions. Technical specifications are customizable for research and clinical validation partners.
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5 – WHO IT SERVES -->
+      <section class="section-padding audience-section" id="who-it-serves">
+        <div class="container">
+          <div class="text-center">
+            <span class="kicker-badge animate-on-scroll">
+              <span class="dot"></span>
+              Clinical Deployment
+            </span>
+            <h2 class="section-title animate-on-scroll">Serving Diverse Healthcare Settings</h2>
+            <p class="section-subtitle animate-on-scroll">
+              Explore how NAYAN AI adapts to the unique workflows of multidisciplinary medical centers, specialty eye clinics, and public health initiatives.
+            </p>
+          </div>
+
+          <!-- Audience Tabs -->
+          <div class="audience-tabs-nav animate-on-scroll">
+            <button class="audience-tab active" data-target="panel-hospitals" type="button">Hospitals</button>
+            <button class="audience-tab" data-target="panel-clinics" type="button">Eye Clinics</button>
+            <button class="audience-tab" data-target="panel-screening" type="button">Screening Centers</button>
+            <button class="audience-tab" data-target="panel-ngos" type="button">NGOs &amp; Public Health</button>
+          </div>
+
+          <!-- Panel 1: Hospitals -->
+          <div class="audience-panel active" id="panel-hospitals">
+            <div>
+              <h3 class="panel-title">Tertiary Care &amp; Hospital Networks</h3>
+              <p class="panel-desc">
+                Integrate automated retinal screening directly into outpatient endocrinology, diabetes education, and general medicine departments to streamline specialist referrals.
+              </p>
+              <ul class="panel-features">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  High-throughput queue management for multi-camera clinics
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Direct integration with enterprise Electronic Health Records
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Automated prioritization of urgent sight-threatening referrals
+                </li>
+              </ul>
+            </div>
+            <div class="intro-visual-card">
+              <div class="visual-card-badge">Enterprise Triage</div>
+              <p style="font-size: 0.9375rem; color: #475569; line-height: 1.6;">
+                Supports centralized reading centers and hospital-wide patient identification protocols with role-based clinical security.
+              </p>
+            </div>
+          </div>
+
+          <!-- Panel 2: Eye Clinics -->
+          <div class="audience-panel" id="panel-clinics">
+            <div>
+              <h3 class="panel-title">Ophthalmic &amp; Optometry Clinics</h3>
+              <p class="panel-desc">
+                Enhance point-of-care patient evaluations with rapid diagnostic assistance, providing second-look validation for subtle early microvascular lesions.
+              </p>
+              <ul class="panel-features">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Rapid visual summary overlays highlighting suspicious regions
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Comprehensive longitudinal fundus tracking between visits
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Clear patient-facing educational reports
+                </li>
+              </ul>
+            </div>
+            <div class="intro-visual-card">
+              <div class="visual-card-badge">Practice Efficiency</div>
+              <p style="font-size: 0.9375rem; color: #475569; line-height: 1.6;">
+                Enables optometrists and general practitioners to confidently identify patients requiring specialized retinal intervention.
+              </p>
+            </div>
+          </div>
+
+          <!-- Panel 3: Screening Centers -->
+          <div class="audience-panel" id="panel-screening">
+            <div>
+              <h3 class="panel-title">Community Screening Centers &amp; Mobile Vans</h3>
+              <p class="panel-desc">
+                Bring preventative ophthalmic screening to underserved populations, workplace health fairs, and rural mobile health units.
+              </p>
+              <ul class="panel-features">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Lightweight operation on portable laptops and edge appliances
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Immediate on-site screening feedback for frontline technicians
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Offline-capable asynchronous synchronization
+                </li>
+              </ul>
+            </div>
+            <div class="intro-visual-card">
+              <div class="visual-card-badge">Mobile Outreach</div>
+              <p style="font-size: 0.9375rem; color: #475569; line-height: 1.6;">
+                Extends specialized retinal care beyond major metropolitan centers into high-need community locations.
+              </p>
+            </div>
+          </div>
+
+          <!-- Panel 4: NGOs -->
+          <div class="audience-panel" id="panel-ngos">
+            <div>
+              <h3 class="panel-title">NGOs &amp; Global Health Initiatives</h3>
+              <p class="panel-desc">
+                Partnering with non-governmental organizations dedicated to preventing avoidable blindness and reducing health disparities worldwide.
+              </p>
+              <ul class="panel-features">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Scalable screening programs for low-resource environments
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Tele-ophthalmology referral network support
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  Aggregated, anonymized public health epidemiological metrics
+                </li>
+              </ul>
+            </div>
+            <div class="intro-visual-card">
+              <div class="visual-card-badge">Global Vision Health</div>
+              <p style="font-size: 0.9375rem; color: #475569; line-height: 1.6;">
+                Empowering international health missions with accessible, objective AI tools to combat preventable diabetic vision loss.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6 – CONTACT & DEMO REQUEST -->
+      <section class="section-padding contact-section" id="contact-section">
+        <div class="container">
+          <div class="text-center">
+            <span class="kicker-badge animate-on-scroll">
+              <span class="dot"></span>
+              Clinical Inquiries
+            </span>
+            <h2 class="section-title animate-on-scroll">Initiate a Screening Collaboration</h2>
+            <p class="section-subtitle animate-on-scroll">
+              Contact our clinical partnerships team to explore pilot implementations, integration evaluations, or research collaborations.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <!-- Contact Form Card -->
+            <div class="contact-card animate-on-scroll delay-1">
+              <form id="contact-form" novalidate>
+                <div class="form-group">
+                  <label class="form-label" for="contact-name">Full Name *</label>
+                  <input type="text" id="contact-name" class="form-input" placeholder="e.g. Dr. Catherine Brooks" required>
+                  <div class="form-error"></div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="contact-email">Institutional / Work Email *</label>
+                  <input type="email" id="contact-email" class="form-input" placeholder="e.g. cbrooks@healthsystem.example" required>
+                  <div class="form-error"></div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="contact-org">Organization Sector</label>
+                  <select id="contact-org" class="form-select">
+                    <option value="Hospital">Hospital / Health System</option>
+                    <option value="Eye Clinic">Eye Clinic / Private Ophthalmology</option>
+                    <option value="Screening Center">Community Screening Center</option>
+                    <option value="NGO">NGO / Global Health Program</option>
+                    <option value="Research">Academic / Clinical Research</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="contact-message">Inquiry Details *</label>
+                  <textarea id="contact-message" class="form-textarea" rows="4" placeholder="Describe your clinical setup, fundus imaging equipment, and screening goals..." required></textarea>
+                  <div class="form-error"></div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                  Send Clinical Inquiry
+                </button>
+              </form>
+            </div>
+
+            <!-- Contact Info & Details -->
+            <div class="contact-info-card animate-on-scroll delay-2">
+              <div class="info-item">
+                <div class="info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="info-title">Clinical Partnerships</h4>
+                  <p class="info-text">partnerships@nayan-ai.example</p>
+                  <p class="info-text">support@nayan-ai.example</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="info-title">Telephone Inquiries</h4>
+                  <p class="info-text">+1 (800) 555-NAYAN</p>
+                  <p class="info-text">Mon – Fri, 9:00 AM – 5:00 PM EST</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="info-title">Global Headquarters</h4>
+                  <p class="info-text">NAYAN AI Medical Technologies Inc.</p>
+                  <p class="info-text">450 Innovation Parkway, Suite 300</p>
+                  <p class="info-text">Cambridge, MA 02142, USA</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 7 – FOOTER -->
+      <footer class="site-footer" id="site-footer">
+        <div class="container">
+          <div class="footer-top">
+            <div>
+              <div class="nav-brand" style="margin-bottom: 16px;">
+                <svg class="brand-icon-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="24" r="21" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 3"/>
+                  <circle cx="24" cy="24" r="14" stroke="#0284c7" stroke-width="2"/>
+                  <circle cx="24" cy="24" r="6" fill="#0284c7"/>
+                </svg>
+                <span class="brand-text" style="color: #ffffff;">NAYAN<span>.ai</span></span>
+              </div>
+              <p class="footer-brand-desc">
+                Advancing accessible, AI-assisted screening for diabetic retinopathy to preserve vision and empower healthcare providers worldwide.
+              </p>
+            </div>
+
+            <div>
+              <h5 class="footer-heading">Platform</h5>
+              <ul class="footer-links">
+                <li><a href="#company-intro">Overview</a></li>
+                <li><a href="#about-solution">Clinical Rationale</a></li>
+                <li><a href="#how-it-works">Screening Workflow</a></li>
+                <li><a href="#technology">AI Architecture</a></li>
+                <li><a href="#who-it-serves">Care Settings</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h5 class="footer-heading">Audiences</h5>
+              <ul class="footer-links">
+                <li><a href="#who-it-serves">Hospitals &amp; Networks</a></li>
+                <li><a href="#who-it-serves">Eye Clinics</a></li>
+                <li><a href="#who-it-serves">Screening Vans</a></li>
+                <li><a href="#who-it-serves">Public Health NGOs</a></li>
+                <li><a href="#contact-section">Request Demo</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h5 class="footer-heading">Compliance &amp; Legal</h5>
+              <ul class="footer-links">
+                <li><a href="#">Clinical Evaluation Protocols</a></li>
+                <li><a href="#">Data Privacy &amp; HIPAA</a></li>
+                <li><a href="#">Terms of Evaluation</a></li>
+                <li><a href="#">Responsible AI Principles</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <p>&copy; 2026 NAYAN AI Medical Technologies Inc. All rights reserved. For healthcare technology demonstration purposes.</p>
+            <p>Designed with Three.js &amp; GSAP ScrollTrigger</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <!-- CLINICAL PORTAL DEMO MODAL -->
+  <div class="portal-modal-overlay" id="portal-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Modal" type="button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">NAYAN Clinical Portal</h3>
+        <p class="modal-subtitle" id="modal-subtitle">Authorized clinical demonstration for ophthalmic screening networks.</p>
+      </div>
+
+      <div class="demo-disclaimer-box">
+        <strong>FRONTEND DEMO NOTICE:</strong> This is a client-side interface demonstration. No actual patient data, medical credentials, or authentication tokens are transmitted or stored.
+      </div>
+
+      <form id="portal-demo-form">
+        <div class="role-switch-group">
+          <label class="role-pill">
+            <input type="radio" name="user-role" value="Ophthalmologist" checked>
+            <span>Ophthalmologist</span>
+          </label>
+          <label class="role-pill">
+            <input type="radio" name="user-role" value="Screening Technician">
+            <span>Screening Technician</span>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="portal-id">Clinical User ID</label>
+          <input type="text" id="portal-id" class="form-input" value="clinician.demo@nayan-ai.org" readonly>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="portal-key">Demo Access Key</label>
+          <input type="password" id="portal-key" class="form-input" value="••••••••••••" readonly>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" id="modal-submit-btn" style="width: 100%; margin-top: 12px;">
+          Access Portal (Demo)
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FLOATING APP TOAST -->
+  <div class="app-toast" id="app-toast" role="status" aria-live="polite">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2.5">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+    </svg>
+    <span id="toast-message">Operation successful.</span>
+  </div>
+
+  <!-- Main JavaScript App Bundle -->
+</body>
+</html>

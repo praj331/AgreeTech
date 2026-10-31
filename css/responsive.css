@@ -1,0 +1,124 @@
+/**
+ * RETINA AI - Responsive Breakpoints & Device Adaptations
+ */
+
+/* Laptops & Medium Screens (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .hero-heading {
+    font-size: 2.6rem;
+  }
+
+  .roles-grid-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bilateral-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+}
+
+/* Tablets & Small Laptops (max-width: 768px) */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 68px;
+  }
+
+  .section-padding {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .nav-menu, .nav-actions .btn-outline {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .hero-content-wrapper {
+    padding-top: calc(var(--header-height) + 24px);
+    padding-bottom: 24px;
+  }
+
+  .hero-heading {
+    font-size: 2.1rem;
+  }
+
+  .hero-subtext {
+    font-size: 1.0625rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+
+  .roles-grid-4 {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .qr-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Mobile Screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero-heading {
+    font-size: 1.75rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .stats-grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .role-card {
+    padding: 24px 20px;
+  }
+
+  .panel-card {
+    padding: 20px 16px;
+  }
+
+  .eye-caption-bar {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+}
